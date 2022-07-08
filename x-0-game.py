@@ -11,9 +11,15 @@ for qator in oyin:
 joy = 9
 oyinchi='X'
 while joy>0:
-	qator = int(input(oyinchi+"_qator: "))
-	ustun = int(input(oyinchi+"_ustun: "))
-	oyin[qator-1][ustun-1] = oyinchi
+	while True:
+		qator = int(input(oyinchi+"_qator: "))
+		ustun = int(input(oyinchi+"_ustun: "))
+		if oyin[qator-1][ustun-1] == '_':
+			joy-=1
+			oyin[qator-1][ustun-1] = oyinchi
+			if oyin[0][0]=='X' and oyin[0][1]=='X' and oyin[0][2]=='X':
+				print("X yutti")
+			break
 	for qator in oyin:
 		for i in qator:
 			print(i.center(5,' '),end='')
@@ -22,4 +28,3 @@ while joy>0:
 		oyinchi='0'
 	else:
 		oyinchi='X'
-	joy-=1
